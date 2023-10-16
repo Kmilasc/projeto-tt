@@ -1,0 +1,14 @@
+import { createI18nClient } from 'next-international/client';
+import ptBR from './pt-BR';
+
+export const { useI18n, useScopedI18n, I18nProviderClient, useChangeLocale, defineLocale, useCurrentLocale } =
+  createI18nClient(
+    {
+      en: () => import('./en'),
+      es: () => import('./es'),
+      'pt-BR': () => import('./pt-BR'),
+    },
+    {
+      fallbackLocale: ptBR,
+    },
+  );
