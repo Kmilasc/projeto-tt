@@ -13,8 +13,12 @@ const Wrapper = styled.section`
 
 const Header = styled.header`
     display: flex;
-    gap: 40px;
-    height: 100%;
+    gap: px;
+    height: 700px;
+    with: 1440px;
+    backdrop-filter: blur(30px);
+    margin-left: 112px;
+    margin-right: 112px;
 `;
 
 const Menu = styled.ul`
@@ -22,7 +26,6 @@ const Menu = styled.ul`
     gap: 40px;
     list-style-type: none;
     color: #FFFFFF;
-    margin-right: 48px;
     margin-top: 36px;
     margin-bottom: 36px;
     font-size: 15px;
@@ -39,7 +42,6 @@ const Actions = styled.div`
     gap: 40px;
     list-style-type: none;
     color: #FFFFFF;
-    margin-right: 48px;
     margin-top: 36px;
     margin-bottom: 36px;
     font-size: 15px;
@@ -52,17 +54,19 @@ const Actions = styled.div`
 `;
 
 const ButtonStartNow = styled.button`
-    width: 100%; 
-    height: 100%; 
-    opacity: 0.50; 
+    width: 160px; 
+    height: 40px; 
+    background: transparent;
     border-radius: 80px; 
     border: 1px white solid;
+    color: white;
+
 `;
 
 const MenuWithLogo = styled.div`
     display: flex;
     flex: 1;
-
+    
     :first-child {
         flex: 1;
     }
@@ -93,7 +97,7 @@ const IconUserAction = styled.div`
 `;
 
 const LogoMenu = styled.div`
-    margin-left: 112px;
+    flex: 1;
     margin-top: 24px;
     margin-bottom: 24px;
 `;
@@ -102,8 +106,17 @@ const LineMenu = styled.hr`
     margin: 0px;
     height: 45px;
     align-self: center;
+    border-color: #99F3F5;
+    transform-origin: 0 0; 
+    height: 24px;
+    opacity: 0.25; 
+    border: 1px #99F3F5 solid;
 `;
 
+const MenuWithAction = styled.div`
+    display: flex;
+    gap: 48px;
+`;
 export default function Home() {
     const t = useI18n();
 
@@ -111,10 +124,11 @@ export default function Home() {
         <>
             <Wrapper>
                 <Header>
-                    <MenuWithLogo>
-                        <LogoMenu>
-                            <img src="/logo.svg" alt="Logo Ensinio" />
-                        </LogoMenu>
+                    <LogoMenu>
+                        <img src="/logo.svg" alt="Logo Ensinio" />
+                    </LogoMenu>
+                    <MenuWithAction>
+                                
                         <Menu>
                             <ArrowSolutions>
                                 {t("menu.solutions")} <div><ArrowDropDown /></div>
@@ -135,22 +149,23 @@ export default function Home() {
                             <li>{t("menu.blog")}</li>
                             <li>{t("menu.contact")}</li>
                         </Menu>
-                    </MenuWithLogo>
-                    <LineMenu />
-                    <Actions>
-                    <IconUserAction>
-                    <div><AccountCircleOutlined/></div> {t("menu.sign#in")}
-                    </IconUserAction>
-                        <ButtonStartNow>{t("menu.start#now")}</ButtonStartNow>
-                        <ArrowActions>
-                            {t("menu.language#more.pt")}<div><ArrowDropDown /></div>
-                            {/* <ul>
-                                <li>{t("menu.language#more.pt")}</li>
-                                <li>{t("menu.language#more.en")}</li>
-                                <li>{t("menu.language#more.es")}</li>
-                            </ul> */}
-                        </ArrowActions>
-                    </Actions>
+                        <LineMenu />
+                        <Actions>
+                        <IconUserAction>
+                        <div><AccountCircleOutlined/></div> {t("menu.sign#in")}
+                        </IconUserAction>
+                            <ButtonStartNow>{t("menu.start#now")}</ButtonStartNow>
+                            <ArrowActions>
+                                {t("menu.language#more.pt")}<div><ArrowDropDown /></div>
+                                {/* <ul>
+                                    <li>{t("menu.language#more.pt")}</li>
+                                    <li>{t("menu.language#more.en")}</li>
+                                    <li>{t("menu.language#more.es")}</li>
+                                </ul> */}
+                            </ArrowActions>
+                        </Actions>
+                    </MenuWithAction>
+                    
                 </Header>
                 <div>
                     <h1>{t("home.platform.all#in#one")}</h1>
