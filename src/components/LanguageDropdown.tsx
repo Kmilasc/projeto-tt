@@ -25,7 +25,6 @@ const DropdownList = styled.ul`
     z-index: 10;
 
     & > li {
-        padding: 10px;
         cursor: pointer;
         color: black;
         display: flex;
@@ -34,6 +33,11 @@ const DropdownList = styled.ul`
 
         &:hover {
             background-color: #f5f5f5;
+        }
+
+        & > a {
+            padding: 10px;
+            width: 100%;
         }
     }
 `;
@@ -62,14 +66,6 @@ export function LanguageDropdown({ onLanguageChange }) {
         setSelectedLanguage(language);
         onLanguageChange(language);
         setIsOpen(false);
-
-        // Redireciona para a rota correspondente ao idioma selecionado
-        switch (language) {
-            case 'en':
-                window.location.href = "/en/client";
-                break;
-            // Você pode adicionar outros idiomas e rotas conforme necessário
-        }
     };
 
     return (
@@ -79,24 +75,30 @@ export function LanguageDropdown({ onLanguageChange }) {
             {isOpen && (
                 <DropdownList>
                     <li onClick={() => handleLanguageClick('pt')}>
-                        <LanguageItem>
-                            <img src="/brazil.png" alt="Brazil" />
-                            PT
-                        </LanguageItem>
+                        <Link href="/pt/client">
+                            <LanguageItem>
+                                <img src="/brazil.png" alt="Brazil" />
+                                PT
+                            </LanguageItem>
+                        </Link>
                         {selectedLanguage === 'pt' && <DoneIcon />}
                     </li>
                     <li onClick={() => handleLanguageClick('en')}>
-                        <LanguageItem>
-                            <img src="/usa.png" alt="USA" />
-                            EN
-                        </LanguageItem>
+                        <Link href="/en/client">
+                            <LanguageItem>
+                                <img src="/usa.png" alt="USA" />
+                                EN
+                            </LanguageItem>
+                        </Link>
                         {selectedLanguage === 'en' && <DoneIcon />}
                     </li>
-                    <li onClick={() => handleLanguageClick('es')}>
-                        <LanguageItem>
-                            <img src="/spain.png" alt="Spain" />
-                            ES
-                        </LanguageItem>
+                    <li >
+                        <Link href="/es/client">
+                            <LanguageItem>
+                                <img src="/spain.png" alt="Spain" />
+                                ES
+                            </LanguageItem>
+                        </Link>
                         {selectedLanguage === 'es' && <DoneIcon />}
                     </li>
                 </DropdownList>
