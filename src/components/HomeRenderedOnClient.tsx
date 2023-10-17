@@ -8,7 +8,7 @@ import PlayArrowRounded from '@material-ui/icons/PlayArrowRounded'
 import TrendingFlatRounded from '@material-ui/icons/TrendingFlatRounded'
 import { Card } from '@/components/Card';
 import { useItemsStore } from '@/app/[locale]/provider';
-import { LanguageDropdown } from './path-to-your-new-component';
+import { LanguageDropdown } from './LanguageDropdown';
 
 const FlexRow = styled.div`
     display: flex;
@@ -341,7 +341,6 @@ export default function HomeRenderedOnClient() {
                             </IconUserAction>
                                 <ButtonStartNow>{t("menu.start#now")}</ButtonStartNow>
                                 <LanguageDropdown onLanguageChange={(lang) => {
-    // Aqui você pode manipular o idioma selecionado. Por exemplo:
     console.log(`Idioma selecionado: ${lang}`);
 }} />
                             </Actions>
